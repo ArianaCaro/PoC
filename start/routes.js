@@ -30,7 +30,7 @@ Route.group(() => {
 
   Route.get('user', 'UserController.getUser');
   Route.post('logout', 'UserController.logout');
-}).middleware('auth');
+}).middleware('auth');  //para proteger las rutas
 
 
 

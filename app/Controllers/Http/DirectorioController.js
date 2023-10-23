@@ -13,12 +13,12 @@ class DirectorioController {
                               .fetch();
     }
     else{
-      return await Directorio.all();
+      return await Directorio.all();      //devuelve un solo registro
     }    
   }
 
   async store ({ request, response }) {
-    let input = request.all();
+    let input = request.all();  
     
     //validar
     const validation = await this.validar(input);
@@ -36,7 +36,7 @@ class DirectorioController {
   }
 
   async show ({ params, request, response }) {
-    return await Directorio.findOrFail(params.id);
+    return await Directorio.findOrFail(params.id);  //devuelve un solo registro
   }
 
   async update ({ params, request, response }) {
@@ -76,13 +76,13 @@ class DirectorioController {
     const avatar = request.file('avatar', {
       types: ['image'],
       size: '2mb'
-    });
+    });  //guarda en el archivo
 
     const nombreArchivo = params.id + '.' + avatar.extname;
     await avatar.move('./public/fotografias', {
       name: nombreArchivo,
       overwrite: true
-    })
+    })   //guarda en el servidor
 
     if(!avatar.moved()){
       return response.status(422).send({
@@ -99,7 +99,10 @@ class DirectorioController {
       res: true,
       message: "Foto registrada correctamente!"
     })
+
+   
   }
 }
+
 
 module.exports = DirectorioController

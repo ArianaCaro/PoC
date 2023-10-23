@@ -28,6 +28,7 @@ module.exports = {
   |
   */
   appKey: Env.getOrFail('APP_KEY'),
+//permite mantener la clave de aplicación fuera del código fuente y proporciona una forma segura de configurarla.
 
   http: {
     /*

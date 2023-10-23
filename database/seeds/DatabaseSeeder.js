@@ -19,5 +19,6 @@ class DatabaseSeeder {
     await DirectorioSeeder.run()
   }
 }
-
+// ejecuta todos los seeders que tenemos
 module.exports = DatabaseSeeder
+
