@@ -17,7 +17,6 @@ class UserController {
         let token = await auth.withRefreshToken().attempt(input.email, input.password);
         return response.json({
             res: true,
-            token: token,
             message: 'Bienvenido al sistema'
         })
     }
@@ -35,8 +34,6 @@ class UserController {
 
         await auth
         .authenticator('api')
-        .revokeTokens([apiToken])
-
         response.status(200).send({
             res:true,
             message: 'Adios'
