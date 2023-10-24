@@ -7,6 +7,23 @@ const Env = use('Env')
 const Helpers = use('Helpers')
 
 module.exports = {
+  connection: Env.get('DB_CONNECTION', 'mysql'),
+
+  mysql: {
+    client: 'mysql',
+    connection: {
+      host: Env.get('DB_HOST', 'localhost'),
+      port: Env.get('DB_PORT', '3306'),
+      user: Env.get('DB_USER', 'root'),
+      password: Env.get('DB_PASSWORD', ''),
+      database: Env.get('DB_DATABASE', 'contactosadonisbd')
+    },
+    debug: Env.get('DB_DEBUG', false)
+  }
+}
+
+/*
+module.exports = {
   connection: Env.get('DB_CONNECTION', 'mysql2'),
   /*
   |--------------------------------------------------------------------------
@@ -18,7 +35,7 @@ module.exports = {
   | npm i --save mysql
   |
   */
-  mysql: {
+ /* mysql: {
     client: 'mysql',
     connection: {
       host: Env.get('DB_HOST', 'localhost'),
@@ -29,4 +46,4 @@ module.exports = {
     },
     debug: Env.get('DB_DEBUG', false),
   }
-}
+}*/

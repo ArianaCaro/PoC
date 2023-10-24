@@ -22,15 +22,15 @@ Route.get('/', () => {
 
 
 Route.post('users', 'UserController.store');
-Route.post('login', 'UserController.login');
+Route.get('user', 'UserController.index');
+//Route.post('login', 'UserController.login');
 
-Route.group(() => {
+/*Route.group(() => {
   Route.resource('directorios', 'DirectorioController').apiOnly();
   Route.post('cargar_foto/:id', 'DirectorioController.cargarFoto');
-
   Route.get('user', 'UserController.getUser');
-  Route.post('logout', 'UserController.logout');
-}).middleware('auth');  //para proteger las rutas
+ // Route.post('logout', 'UserController.logout');
+}).middleware(['auth']);  *///para proteger las rutas
 
 
 

@@ -12,7 +12,14 @@ class UserController {
         });
       }
 
-    async login({request, response, auth}){
+
+    async index({ response }) {
+      const users = await User.all()
+      response.json(users)
+    }
+
+
+ /*   async login({request, response, auth}){
         let input = request.all();
         let token = await auth.withRefreshToken().attempt(input.email, input.password);
         return response.json({
@@ -41,7 +48,7 @@ class UserController {
             res:true,
             message: 'Adios'
         })
-    }
+    }*/
 }
 
 module.exports = UserController
